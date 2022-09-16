@@ -1,0 +1,12 @@
+1- JSON dosyalarının içindeki boşlukları kaldırarak dosyanın boyutunu 
+   küçültmek bunla birlikte verimliliğin artmasıda bekleniyor.
+
+2- İlk olarak yalnızca 'dönüştürme' işlevini yapacak betik oluşturulacak,
+   daha sonra bir arayüz araç takımıyla (gtk veya qt) 'değiştirme' ve 
+   'dönüştürme' işlevlerini ve insanlar tarafından verilerin kolayca 
+   okunulabilir olan bir uygulama oluşturulacak.
+
+3- Gerekebilecek ana birimler:
+  + os
+  + re
+  + json 
