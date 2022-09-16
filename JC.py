@@ -1,4 +1,4 @@
-"""Testing Json Module for JSON-Compactor"""
+"""JCompactor is JSON Compactor."""
 import os
 import json
 
@@ -22,10 +22,10 @@ def compactor(file):
     return s1 - s2
 
 
-print("Welcome to the JSON Composter.")
+print("Welcome to the JCompactor.")
 while True:
     print(80 * "*")
-    q1 = int(input("What will you compost? File[1] or Directory(2): "))
+    q1 = int(input("What will you compact? File[1] or Directory(2): "))
 
     if q1 == 2:
         pass
