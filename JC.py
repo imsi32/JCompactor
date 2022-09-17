@@ -9,11 +9,15 @@ def compactor(file):
         with open(file, 'r', encoding="utf-8") as fr:
             us.update(json.load(fr))
         s1 = os.stat(file).st_size
+    except json.decoder.JSONDecodeError:
+        return print(file, "is empty.")
+    except ValueError:
+        # This error arives because json list cannot json.load()
+        s1 = os.stat(file).st_size
+        pass
     except FileNotFoundError:
         print(file, "Could not be found.")
         return print("Try Again")
-    except json.decoder.JSONDecodeError:
-        return print(file, "is empty.")
 
     with open(file, 'w', encoding="utf-8") as fw:
         json.dump(us, fw)
@@ -26,11 +30,21 @@ print("Welcome to the JCompactor.")
 while True:
     print(80 * "*")
     q1 = int(input("What will you compact? File[1] or Directory(2): "))
-
+    ts = 0
     if q1 == 2:
-        pass
+        # Directory Compactingt
+        p = input("Please write your directory path: ")
+        for fp, d, fl in os.walk(p):
+            for fn in fl:
+                if fn.endswith(".json"):
+                    try:
+                        ts += compactor(fp + r'/' + fn)
+                    except TypeError:
+                        pass
+        print("Total size change is", ts)
+
     else:
-        # File Composting
+        # File Compacting
         f = input("What is file name: ")
         compactor(f)
 
