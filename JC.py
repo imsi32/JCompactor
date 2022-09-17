@@ -32,7 +32,7 @@ while True:
     q1 = int(input("What will you compact? File[1] or Directory(2): "))
     ts = 0
     if q1 == 2:
-        # Directory Compactingt
+        # Directory Compacting
         p = input("Please write your directory path: ")
         for fp, d, fl in os.walk(p):
             for fn in fl:
