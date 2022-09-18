@@ -20,7 +20,7 @@ def compactor(file):
         return print("Try Again")
 
     with open(file, 'w', encoding="utf-8") as fw:
-        json.dump(us, fw)
+        json.dump(us, fw, ensure_ascii=False)
     s2 = os.stat(file).st_size
     print(20 * "*", "\n"+ os.path.basename(file), "\nBefore:", str(s1), "\nAfter:", str(s2), "\nDifference:", str(s1 - s2), "\n"+ 20 * "*")
     return s1 - s2
